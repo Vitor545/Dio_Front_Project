@@ -1,11 +1,6 @@
 import Phone from "../img/phone.png";
-import {
-  FiArrowDown,
-  FiHome,
-  FiMapPin,
-  FiShoppingBag,
-  FiTruck,
-} from "react-icons/fi";
+import { FiArrowDown, FiShoppingBag } from "react-icons/fi";
+import Cep from './Cep'
 
 const ProductCard = () => {
   return (
@@ -56,27 +51,10 @@ const ProductCard = () => {
           </span>
         </div>
         <p className="product_card_price_normal">R$ 2.499,00</p>
-        <p className="product_card_price_vezes">em 12x sem juros no cartão de crédito</p>
-        <div className="product_cep">
-          <div className="product_cep_rua">
-            <FiMapPin />
-            <span>Rua Claudio Rodrigues Lopes, Destrito dsggg gfdgzdsgfdfg fdgsfdgds fdgsgfdsg gfdsfdgds</span>
-          </div>
-          <div className="product_cep_frete">
-            <div>
-              <FiTruck />
-              <span><span>Receba até</span> 21 de setembro</span>
-            </div>
-            <span>R$ 21, 36</span>
-          </div>
-          <div className="product_cep_loja">
-            <div>
-              <FiHome />
-              <span><span>Retire na loja em</span> 15 de setembro</span>
-            </div>
-            <span>Grátis</span>
-          </div>
-        </div>
+        <p className="product_card_price_vezes">
+          em 12x sem juros no cartão de crédito
+        </p>
+        <Cep />
         <button className="btn">
           <FiShoppingBag />
           comprar
@@ -85,7 +63,9 @@ const ProductCard = () => {
           <FiShoppingBag />
           carrinho
         </button>
-        <p className="product_footer">Este produto é vendido e entregue por <span>Delta</span></p>
+        <p className="product_footer">
+          Este produto é vendido e entregue por <span>Delta</span>
+        </p>
       </div>
     </section>
   );

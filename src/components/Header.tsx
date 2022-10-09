@@ -20,6 +20,7 @@ const Header = () => {
             <svg
               width="139"
               height="34"
+              className="logo_header"
               viewBox="0 0 139 34"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
