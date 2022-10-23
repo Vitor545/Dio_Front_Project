@@ -683,40 +683,12 @@ img {
 }
 
 .cart_price {
-  max-width: 330px;
+  max-width: 384px;
   height: 550px;
   width: 100%;
   padding: 20px;
   border-radius: 8px;
   background-color: $white;
-
-
-  .product_cep {
-    margin-bottom: 36px;
-
-    .product_cep_frete,
-    .product_cep_loja {
-      justify-content: flex-start;
-
-      div {
-        margin-right: 4px;
-
-        span {
-          font-size: 12px;
-          color: $gray_dark;
-          font-weight: 400;
-
-          span {
-            font-weight: 700;
-          }
-        }
-      }
-
-      span {
-        font-size: 12px;
-      }
-    }
-  }
 
   .cart_products_title {
     color: $gray-dark;
@@ -744,18 +716,147 @@ img {
   }
 }
 
-.active_cep {
-  width: 12px;
-  height: 12px;
-  margin-right: 4px;
-  background-color: $blue;
-  border-radius: 50%;
+
+.sing {
+  display: flex;
+  justify-content: center;
+
+  .sing_card {
+    max-width: 614px;
+    width: 100%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 22px 28px;
+    height: 426px;
+    background-color: $white;
+
+    .sing_hero {
+      font-weight: 500;
+      color: $gray-dark;
+      padding-bottom: 14px;
+      border-bottom: 1px solid $gray_light;
+    }
+
+    .sing_email {
+      display: flex;
+      color: $gray;
+      margin-top: 8px;
+      flex-direction: column;
+
+      input {
+        height: 40px;
+        outline: 0;
+        margin-top: 4px;
+        border-radius: 4px;
+        padding: 8px;
+        border: 1px solid $gray-light;
+      }
+    }
+
+    .sing_password {
+      display: flex;
+      color: $gray;
+      margin-top: 14px;
+      flex-direction: column;
+
+      input {
+        height: 40px;
+        border-radius: 4px;
+        padding: 8px;
+        margin-top: 4px;
+        outline: 0;
+        border: 1px solid $gray-light;
+      }
+    }
+
+    .btn {
+      margin-top: 52px;
+      white-space: nowrap;
+    }
+
+    p {
+      color: $gray;
+      text-align: center;
+      margin-top: 28px;
+
+      span {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .singup_sing {
+      margin-top: 12px;
+
+      span {
+        border-bottom: 1px solid $gray_dark;
+      }
+    }
+  }
 }
 
-.inactive_cep {
-  width: 12px;
-  height: 12px;
-  margin-right: 4px;
-  border: 1px solid $blue;
-  border-radius: 50%;
+.sing_card.singup_card {
+  height: 660px;
+}
+
+.sing_card.edit_card {
+  height: 745px;
+}
+
+.search_container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  .serach_title {
+    color: $gray_dark;
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+  .img_search {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search_card {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.cart_price.orders {
+  height: 270px;
+}
+
+.cart_products.produtos_cadastrados {
+  max-width: 100%;
+}
+
+.btn_edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+  background: $blue;
+  padding: 8px 40px;
+}
+
+.btn_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+  background: $btn_delete;
+  padding: 8px 40px;
 }

@@ -11,7 +11,7 @@ class DemoCarousel extends Component {
         autoPlay
         infiniteLoop
         interval={8000}
-        className='container'
+        className="container"
         showThumbs={false}
         showStatus={false}
         animationHandler={"fade"}

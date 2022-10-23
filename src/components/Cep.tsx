@@ -67,7 +67,6 @@ const Card = () => {
         </span>
       </div>
       <div className="product_cep_frete">
-        <div className="active_cep"></div>
         <div>
           <FiTruck />
           <span>
@@ -77,7 +76,6 @@ const Card = () => {
         <span>R$ 21, 36</span>
       </div>
       <div className="product_cep_loja">
-        <div className="inactive_cep"></div>
         <div>
           <FiHome />
           <span>

@@ -1,15 +1,13 @@
 import Header from "./components/Header";
-import ProductCard from "./components/ProductCard";
-import CartPage from "./pages/CartPage";
-import Home from "./pages/Home";
-import Product from "./pages/Product";
+import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <CartPage />
-    </div>
+      <Routes />
+    </BrowserRouter>
   );
 }
 

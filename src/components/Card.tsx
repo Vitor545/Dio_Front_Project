@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Phone from "../img/phone.png";
 
 const Card = () => {
+  const navigation = useNavigate();
   return (
-    <div className="card_container">
+    <div className="card_container" onClick={() => navigation("/produto/5")}>
       <div className="card_img">
         <img src={Phone} alt="produto" />
       </div>

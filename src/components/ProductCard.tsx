@@ -1,8 +1,11 @@
 import Phone from "../img/phone.png";
 import { FiArrowDown, FiShoppingBag } from "react-icons/fi";
-import Cep from './Cep'
+import Cep from "./Cep";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
+  const navigation = useNavigate();
+
   return (
     <section className="product_card container">
       <div className="product_card_product">
@@ -55,7 +58,7 @@ const ProductCard = () => {
           em 12x sem juros no cartão de crédito
         </p>
         <Cep />
-        <button className="btn">
+        <button className="btn" onClick={() => navigation("/carrinho")}>
           <FiShoppingBag />
           comprar
         </button>
