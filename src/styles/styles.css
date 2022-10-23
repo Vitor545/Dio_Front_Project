@@ -654,7 +654,7 @@ img {
   flex-direction: column;
   border-radius: 8px;
   padding: 22px 28px;
-  height: 426px;
+  height: auto;
   background-color: white;
 }
 .sing .sing_card .sing_hero {
@@ -712,11 +712,11 @@ img {
 }
 
 .sing_card.singup_card {
-  height: 660px;
+  height: auto;
 }
 
 .sing_card.edit_card {
-  height: 745px;
+  height: auto;
 }
 
 .search_container {
@@ -769,4 +769,17 @@ img {
   cursor: pointer;
   background: #E21F2D;
   padding: 8px 40px;
+}
+
+.ms_gerror {
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #CB5959;
+  border-radius: 0.4rem;
+  padding: 0.8rem 1rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }/*# sourceMappingURL=styles.css.map */

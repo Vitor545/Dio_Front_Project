@@ -730,7 +730,7 @@ img {
     flex-direction: column;
     border-radius: 8px;
     padding: 22px 28px;
-    height: 426px;
+    height: auto;
     background-color: $white;
 
     .sing_hero {
@@ -799,11 +799,11 @@ img {
 }
 
 .sing_card.singup_card {
-  height: 660px;
+  height: auto;
 }
 
 .sing_card.edit_card {
-  height: 745px;
+  height: auto;
 }
 
 .search_container {
@@ -859,4 +859,17 @@ img {
   cursor: pointer;
   background: $btn_delete;
   padding: 8px 40px;
+}
+
+.ms_gerror {
+  width: 100%;
+  background-color: $boxError;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $textError;
+  border-radius: 0.4rem;
+  padding: 0.8rem 1rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
