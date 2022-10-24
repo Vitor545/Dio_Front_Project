@@ -2,9 +2,10 @@ import Phone from "../img/phone.png";
 
 type ICartProduct = {
   isOrders?: boolean;
+  id?: number;
 };
 
-const CartProduct = ({ isOrders = false }: ICartProduct) => {
+const CartProduct = ({ id, isOrders = false }: ICartProduct) => {
   return (
     <div className="cart_card_product">
       <div className="cart_image_product">

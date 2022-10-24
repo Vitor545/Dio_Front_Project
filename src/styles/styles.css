@@ -782,4 +782,43 @@ img {
   padding: 0.8rem 1rem;
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+.header_user {
+  display: flex;
+  align-items: center;
+  max-width: 120px;
+  position: relative;
+  cursor: pointer;
+}
+.header_user .name_user_header_icon {
+  width: 24px;
+  height: 24px;
+  color: #004E9F;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.header_user .box_user_header_icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  color: #004E9F;
+  display: flex;
+  padding: 16px 24px;
+  flex-direction: column;
+  border-radius: 4px;
+}
+.header_user span.box {
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 16px;
+}
+.header_user span:first-child {
+  margin-top: 0;
 }/*# sourceMappingURL=styles.css.map */

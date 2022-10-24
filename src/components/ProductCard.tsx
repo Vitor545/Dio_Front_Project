@@ -1,10 +1,70 @@
 import Phone from "../img/phone.png";
 import { FiArrowDown, FiShoppingBag } from "react-icons/fi";
 import Cep from "./Cep";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductCard = () => {
   const navigation = useNavigate();
+  const { pathname } = useLocation();
+  const id = Number(pathname.replace("/produto/", ""));
+
+  const onClick = () => {
+    toast.success("Adicionado ao Carrinho!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+    const isCart: any = JSON.parse(localStorage.getItem("cart") as string);
+
+    if (!isCart) {
+      return localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          {
+            id,
+            price: "R$ 2.499,00",
+            title: "Smartphone Samsung Galaxy M23 5G 128GB",
+            quantity: 10,
+            img: "sdfdsfdsfs/fddsfsdfdsfsdf",
+          },
+        ])
+      );
+    }
+
+    const isExist = isCart.find((c: any) => c.id === id);
+
+    if (!isExist) {
+      return localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          ...isCart,
+          {
+            id,
+            price: "R$ 2.499,00",
+            title: "Smartphone Samsung Galaxy M23 5G 128GB",
+            quantity: 1,
+            img: "sdfdsfdsfs/fddsfsdfdsfsdf",
+          },
+        ])
+      );
+    }
+
+    const addExtra = isCart.map((obj: any) => {
+      if (obj.id === id) {
+        const increment = { ...obj, quantity: Number(obj.quantity) + 1 };
+        return increment;
+      }
+      return obj;
+    });
+
+    return localStorage.setItem("cart", JSON.stringify(addExtra));
+  };
 
   return (
     <section className="product_card container">
@@ -62,7 +122,7 @@ const ProductCard = () => {
           <FiShoppingBag />
           comprar
         </button>
-        <button className="btn_secondary">
+        <button className="btn_secondary" onClick={onClick}>
           <FiShoppingBag />
           carrinho
         </button>

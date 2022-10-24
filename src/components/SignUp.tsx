@@ -77,7 +77,7 @@ const SignUp = () => {
 
         <label htmlFor="password" className="sing_password">
           <span>senha</span>
-          <input type="text" id="password" onChange={onChangePassword} />
+          <input type="password" id="password" onChange={onChangePassword} />
         </label>
 
         <button className="btn" onClick={onClick}>

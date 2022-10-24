@@ -1,10 +1,34 @@
+import { useEffect, useState } from "react";
 import { BiCartAlt, BiUserCircle } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigation = useNavigate();
+  const dataUser: any = JSON.parse(localStorage.getItem("user") as string);
+  const dataCart: any = JSON.parse(localStorage.getItem("cart") as string);
+  const [haveUser, setHasUser] = useState<boolean>();
+  const [isClick, setIsClick] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!dataUser) {
+      return setHasUser(false);
+    }
+    return setHasUser(true);
+  }, [dataUser]);
+
+  const getDataCart = () => {
+    const final = dataCart.map((item: any) => item.quantity);
+    return final.reduce((acc: any, item: any) => acc + item)
+  }
+
   return (
-    <header>
+    <header
+      onClick={() => {
+        if (isClick) {
+          setIsClick(false);
+        }
+      }}
+    >
       <div className="header_title">
         <div className="container header_title_container">
           <span className="header_title_fister">promoção novaaa geração</span>
@@ -13,7 +37,12 @@ const Header = () => {
             compre seu video-game da <span>nova geração com 15%</span>
           </span>
           <span>&#8226;</span>
-          <span className="header_title_last">{"saiba mais >"}</span>
+          <span
+            onClick={() => navigation("/search?input=video games")}
+            className="header_title_last"
+          >
+            {"saiba mais >"}
+          </span>
         </div>
       </div>
       <div className="header_main">
@@ -44,20 +73,52 @@ const Header = () => {
             </Link>
             <div className="header_content_search">
               <input type="text" placeholder="busque aqui o seu produto" />
-              <div className="header_user" style={{ display: "none" }}>
-                <div>V</div>
-                <span>Vitor Souza</span>
-              </div>
-              <div
-                className="header_user_login"
-                onClick={() => navigation("/login")}
-              >
-                <BiUserCircle className="header_icon_user" />
-                <span>faça seu login ou cadastre-se</span>
-              </div>
+              {haveUser && (
+                <div
+                  className="header_user"
+                  onClick={() => setIsClick(!isClick)}
+                >
+                  <div className="name_user_header_icon">
+                    {dataUser.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span>{dataUser.name}</span>
+                  <div
+                    className="box_user_header_icon"
+                    style={{ display: isClick ? "flex" : "none" }}
+                  >
+                    <span
+                      className="box"
+                      onClick={() => navigation("/orders/4")}
+                    >
+                      meus pedidos
+                    </span>
+                    <span
+                      className="box"
+                      onClick={() => navigation("/produtoscadastrados")}
+                    >
+                      produtos cadastrados
+                    </span>
+                    <span
+                      className="box"
+                      onClick={() => navigation("/cadastroproduct")}
+                    >
+                      cadastrar produto
+                    </span>
+                  </div>
+                </div>
+              )}
+              {!haveUser && (
+                <div
+                  className="header_user_login"
+                  onClick={() => navigation("/login")}
+                >
+                  <BiUserCircle className="header_icon_user" />
+                  <span>faça seu login ou cadastre-se</span>
+                </div>
+              )}
               <Link to="/carrinho" style={{ color: "white" }}>
                 <div className="header_icon_cart_container">
-                  <span>0</span>
+                  <span>{dataCart ? getDataCart() : 0}</span>
                   <BiCartAlt className="header_icon_cart" />
                 </div>
               </Link>
@@ -71,7 +132,9 @@ const Header = () => {
               <span>nosso time</span>
               <span>cartão delta</span>
               <span>promoções</span>
-              <span>venda aqui</span>
+              <span onClick={() => navigation("/cadastroproduct")}>
+                venda aqui
+              </span>
               <span>cupons</span>
             </div>
           </div>

@@ -873,3 +873,46 @@ img {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+
+.header_user {
+  display: flex;
+  align-items: center;
+  max-width: 120px;
+  position: relative;
+  cursor: pointer;
+
+  .name_user_header_icon {
+    width: 24px;
+    height: 24px;
+    color: $blue;
+    overflow: hidden;
+    background-color: $white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+  }
+
+  .box_user_header_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $white;
+    color: $blue;
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    border-radius: 4px;
+  }
+
+  span.box {
+    white-space: nowrap;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+
+  span:first-child {
+    margin-top: 0;
+  }
+}

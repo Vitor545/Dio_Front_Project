@@ -1,7 +1,21 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const CadastroProduct = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
+
+  async function locationRoute() {
+    const dataU = JSON.parse(localStorage.getItem("user") as string);
+    if (!dataU) {
+      return navigate("/login");
+    }
+    return navigate("/cadastroproduct");
+  }
+
+  useEffect(() => {
+    locationRoute();
+  }, [navigate]);
+
   return (
     <div className="sing container">
       <div className="sing_card edit_card">
@@ -46,7 +60,7 @@ const CadastroProduct = () => {
 
         <p className="singup_sing">
           já tem cadastrados?{" "}
-          <span onClick={() => navigation("/produtoscadastrados")}>
+          <span onClick={() => navigate("/produtoscadastrados")}>
             ver produtos
           </span>
         </p>
