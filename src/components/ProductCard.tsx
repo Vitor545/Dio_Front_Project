@@ -9,6 +9,56 @@ const ProductCard = () => {
   const { pathname } = useLocation();
   const id = Number(pathname.replace("/produto/", ""));
 
+  const clickShop = () => {
+    const isCart: any = JSON.parse(localStorage.getItem("cart") as string);
+
+    if (!isCart) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          {
+            id,
+            price: "R$ 2.499,00",
+            title: "Smartphone Samsung Galaxy M23 5G 128GB",
+            quantity: 1,
+            img: "sdfdsfdsfs/fddsfsdfdsfsdf",
+          },
+        ])
+      );
+      return navigation("/carrinho");
+    }
+
+    const isExist = isCart.find((c: any) => c.id === id);
+
+    if (!isExist) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          ...isCart,
+          {
+            id,
+            price: "R$ 2.499,00",
+            title: "Smartphone Samsung Galaxy M23 5G 128GB",
+            quantity: 1,
+            img: "sdfdsfdsfs/fddsfsdfdsfsdf",
+          },
+        ])
+      );
+      return navigation("/carrinho");
+    }
+
+    const addExtra = isCart.map((obj: any) => {
+      if (obj.id === id) {
+        const increment = { ...obj, quantity: Number(obj.quantity) + 1 };
+        return increment;
+      }
+      return obj;
+    });
+
+    localStorage.setItem("cart", JSON.stringify(addExtra));
+    return navigation("/carrinho");
+  };
+
   const onClick = () => {
     toast.success("Adicionado ao Carrinho!", {
       position: "top-right",
@@ -30,7 +80,7 @@ const ProductCard = () => {
             id,
             price: "R$ 2.499,00",
             title: "Smartphone Samsung Galaxy M23 5G 128GB",
-            quantity: 10,
+            quantity: 1,
             img: "sdfdsfdsfs/fddsfsdfdsfsdf",
           },
         ])
@@ -118,7 +168,7 @@ const ProductCard = () => {
           em 12x sem juros no cartão de crédito
         </p>
         <Cep />
-        <button className="btn" onClick={() => navigation("/carrinho")}>
+        <button className="btn" onClick={clickShop}>
           <FiShoppingBag />
           comprar
         </button>
