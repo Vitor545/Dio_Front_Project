@@ -66,6 +66,21 @@ export const getInfoUserapi = async (userId: number, token: string) => {
   return result;
 };
 
+export const buscaCeps = async (cep: string) => {
+  let result;
+
+  await axios
+    .get(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((response) => {
+      result = response.data;
+    })
+    .catch((error) => {
+      result = error.response.data.message;
+    });
+
+  return result;
+};
+
 export const createProduct = async (
   token: string,
   title: string,
