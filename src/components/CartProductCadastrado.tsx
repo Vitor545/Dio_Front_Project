@@ -20,7 +20,7 @@ const CartProductCadastrado = ({ title, preco, img, id }: any) => {
           produto é vendido e entregue por <span>Delta</span>
         </p>
       </div>
-      <span className="cart_price_total">R$ {preco}</span>
+      <span className="cart_price_total">R$ {preco.toLocaleString('pt-BR')}</span>
       <div
         className="btn_edit"
         onClick={() => navigation(`/editproduct/${id}`)}

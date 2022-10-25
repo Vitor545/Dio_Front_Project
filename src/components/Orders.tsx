@@ -77,7 +77,7 @@ const Orders = () => {
         <p className="cart_products_title">detalhes da compra</p>
         <div className="cart_products_price_text">
           <span>sub-total</span>
-          <span>R$ {result}</span>
+          <span>R$ {result.toLocaleString('pt-BR')}</span>
         </div>
         <button className="btn_secondary" onClick={() => navigation("/")}>
           <FiShoppingBag />

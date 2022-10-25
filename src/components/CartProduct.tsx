@@ -85,7 +85,7 @@ const CartProduct = ({
           +
         </span>
       </div>
-      <span className="cart_price_total">R$ {price}</span>
+      <span className="cart_price_total">R$ {price.toLocaleString('pt-BR')}</span>
     </div>
   );
 };

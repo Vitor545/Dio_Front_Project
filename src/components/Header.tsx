@@ -101,6 +101,15 @@ const Header = () => {
                     >
                       cadastrar produto
                     </span>
+                    <span
+                      className="box"
+                      onClick={() => {
+                        localStorage.clear()
+                        window.location.reload()
+                      }}
+                    >
+                      sair
+                    </span>
                   </div>
                 </div>
               )}

@@ -166,13 +166,13 @@ const ProductCard = () => {
       </div>
       <div className="product_card_price">
         <div className="product_card_price_price">
-          <span>R$ {value.preco}</span>
+          <span>R$ {(value.preco * 1.05).toLocaleString('pt-BR')}</span>
           <span>
             <FiArrowDown />
             5%
           </span>
         </div>
-        <p className="product_card_price_normal">R$ {value.preco}</p>
+        <p className="product_card_price_normal">R$ {value.preco.toLocaleString('pt-BR')}</p>
         <p className="product_card_price_vezes">
           em 12x sem juros no cartão de crédito
         </p>

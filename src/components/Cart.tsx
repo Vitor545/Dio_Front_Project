@@ -55,7 +55,7 @@ const ProductCard = () => {
         <p className="cart_products_title">finalizar compra</p>
         <div className="cart_products_price_text">
           <span>sub-total</span>
-          <span>R$ {result}</span>
+          <span>R$ {result.toLocaleString('pt-BR')}</span>
         </div>
         <Cep />
         <button className="btn" onClick={onFinish}>
