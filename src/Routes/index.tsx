@@ -20,7 +20,7 @@ const RoutesComponents = () => {
       <Route path="/editproduct/:id" element={<EditProduct />} />
       <Route path="/cadastroproduct" element={<CadastroProduct />} />
       <Route path="/search" element={<SearchProduct />} />
-      <Route path="/orders/:id" element={<MyOrders />} />
+      <Route path="/orders" element={<MyOrders />} />
       <Route path="/produtoscadastrados" element={<ProductCadastrados />} />
       <Route path="/login" element={<SingPage />} />
     </Routes>

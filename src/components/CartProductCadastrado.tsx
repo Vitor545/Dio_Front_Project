@@ -1,37 +1,33 @@
-import Phone from "../img/phone.png";
 import { FiXCircle, FiEdit2 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { deleteProduct } from "../lib/api";
 
-type ICartProduct = {
-  isOrders: boolean;
-};
-
-const CartProductCadastrado = ({ isOrders }: ICartProduct) => {
+const CartProductCadastrado = ({ title, preco, img, id }: any) => {
   const navigation = useNavigate();
+  const onelete = async () => {
+    const { token } = JSON.parse(localStorage.getItem("user") as string);
+    await deleteProduct(id, token);
+    return window.location.reload();
+  };
   return (
     <div className="cart_card_product">
       <div className="cart_image_product">
-        <img src={Phone} alt="" />
+        <img src={img} alt="" />
       </div>
       <div className="cart_title_product">
-        <p>Smartphone Samsung Galaxy S22 256GB Azul</p>
+        <p>{title}</p>
         <p className="cart_footer">
           produto é vendido e entregue por <span>Delta</span>
         </p>
       </div>
+      <span className="cart_price_total">R$ {preco}</span>
       <div
-        className="cart_quantity"
-        style={{ justifyContent: isOrders ? "center" : "space-between" }}
+        className="btn_edit"
+        onClick={() => navigation(`/editproduct/${id}`)}
       >
-        <span style={{ display: !isOrders ? "inline" : "none" }}>-</span>
-        <span>1</span>
-        <span style={{ display: !isOrders ? "inline" : "none" }}>+</span>
-      </div>
-      <span className="cart_price_total">R$ 2.499,00</span>
-      <div className="btn_edit" onClick={() => navigation("/editproduct/1515")}>
         <FiEdit2 />
       </div>
-      <div className="btn_delete">
+      <div className="btn_delete" onClick={() => onelete()}>
         <FiXCircle />
       </div>
     </div>

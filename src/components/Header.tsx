@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BiCartAlt, BiUserCircle } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from '../context/Cart';
 
 const Header = () => {
   const navigation = useNavigate();
   const dataUser: any = JSON.parse(localStorage.getItem("user") as string);
   const dataCart: any = JSON.parse(localStorage.getItem("cart") as string);
+  const { cart, state, setStateGlobal } = useContext(CartContext);
   const [haveUser, setHasUser] = useState<boolean>();
   const [isClick, setIsClick] = useState<boolean>(false);
 
@@ -15,11 +17,6 @@ const Header = () => {
     }
     return setHasUser(true);
   }, [dataUser]);
-
-  const getDataCart = () => {
-    const final = dataCart.map((item: any) => item.quantity);
-    return final.reduce((acc: any, item: any) => acc + item)
-  }
 
   return (
     <header
@@ -88,7 +85,7 @@ const Header = () => {
                   >
                     <span
                       className="box"
-                      onClick={() => navigation("/orders/4")}
+                      onClick={() => navigation("/orders")}
                     >
                       meus pedidos
                     </span>
@@ -118,7 +115,7 @@ const Header = () => {
               )}
               <Link to="/carrinho" style={{ color: "white" }}>
                 <div className="header_icon_cart_container">
-                  <span>{dataCart ? getDataCart() : 0}</span>
+                  <span>{cart}</span>
                   <BiCartAlt className="header_icon_cart" />
                 </div>
               </Link>

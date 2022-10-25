@@ -21,15 +21,13 @@ const responsive = {
   },
 };
 
-const CardContainer = () => {
+const CardContainer = ({ value }: any) => {
   return (
     <div className="container card_main_container">
       <Carousel responsive={responsive}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {value?.map(({ img, preco, id, title }: any) => (
+          <Card key={id} img={img} preco={preco} id={id} title={title} />
+        ))}
       </Carousel>
     </div>
   );
