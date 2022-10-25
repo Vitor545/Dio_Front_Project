@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:3001";
+const API = "https://carefoultback.herokuapp.com";
 
 export const createUsers = async (
   name: string,
